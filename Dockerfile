@@ -4,10 +4,9 @@ COPY config/server.xml /config/
 COPY config/server.env /config/
 
 RUN mkdir -p /my-special-folder 
-RUN chown -R /my-special-folder && \
-    chmod 2777 -R /my-special-folder
-    
-WORKDIR /my-special-folder  
+RUN chgrp -R 0 /my-special-folder && \
+    chmod -R g=u /my-special-folder
+      
 COPY Dockerfile /my-special-folder
 
 
