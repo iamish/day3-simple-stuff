@@ -3,9 +3,9 @@ COPY target/simple-stuff.war /config/dropins/
 COPY config/server.xml /config/
 COPY config/server.env /config/
 
-RUN mkdir -p /my-special-folder 
-RUN chgrp -R 0 /my-special-folder && \
-    chmod -R g=u /my-special-folder
+RUN mkdir /my-special-folder 
+RUN chown -R 0 /my-special-folder && \
+    chmod -R /my-special-folder
       
 COPY Dockerfile /my-special-folder
 
