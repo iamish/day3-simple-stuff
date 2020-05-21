@@ -4,7 +4,7 @@ COPY config/server.xml /config/
 COPY config/server.env /config/
 
 RUN mkdir -p /my-special-folder 
-RUN chown -R /my-special-folder
+RUN chown -R /my-special-folder && \
     chmod 2777 -R /my-special-folder
     
 WORKDIR /my-special-folder  
